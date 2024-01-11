@@ -1,8 +1,33 @@
-# React + Vite
+# Basics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Import *useState* Hook
+```js
+import { useState } from 'react'
+```
 
-Currently, two official plugins are available:
+## Declare State values:
+```js
+const [like, setLike] = useState(false);
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+const [likeValue, manageLikeValue] = useState(likes);
+```
+
+## Manage the State values
+```js
+const manageLike = (e) => {
+    e.preventDefault();
+    if (!like) {
+        setLike((like) => !like);
+        manageLikeValue((likeValue) => likeValue + 1);
+    } else {
+        setLike((like) => !like);
+        manageLikeValue((likeValue) => likeValue - 1);
+    }
+
+}
+```
+
+## Recall the function to render the new values:
+```js
+<a className={`like-button  js-like-button border ${!like ? "" : "like-button--liked"}`} href="#" data-postid={id} onClick={manageLike}>
+```
