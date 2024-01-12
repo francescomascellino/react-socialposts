@@ -87,3 +87,59 @@ const manageLike = (e) => {
 ```js
 <a className={`like-button  js-like-button border ${!like ? "" : "like-button--liked"}`} href="#" data-postid={id} onClick={manageLike}>
 ```
+
+## Pass a function that alter the *State* as a prop
+```js
+const [posts, managePosts] = useState([
+    {
+        "id": 1,
+
+        "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+
+        "media": "https://unsplash.it/600/300?image=171",
+
+        "author": {
+            "name": "Phil Mangione",
+            "image": "https://unsplash.it/300/300?image=15"
+        },
+
+        "likes": 80,
+        'likeClass': '',
+        "created": "2021-06-25"
+    },
+
+    // ECC
+
+]);
+```
+```js
+const addPost = (post) => {
+    managePosts([...posts, post]);
+};
+```
+```js
+<PostForm
+    addPost={addPost}
+    posts={posts}
+/>
+```
+
+## Use the function passed as a prop to pass values to the component's parent
+```js
+const handleClick = () => {
+
+    const post = {
+
+        id: posts.length + 1,
+
+        // ECC
+
+    };
+
+    addPost(post);
+
+}
+```
+```js
+<button onClick={handleClick}>Add Post</button>
+```

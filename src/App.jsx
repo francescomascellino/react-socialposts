@@ -3,11 +3,12 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.scss'
 import Posts from './Posts'
+import PostForm from './PostForm'
 
 function App() {
     const [count, setCount] = useState(0)
 
-    const posts = [
+    const [posts, managePosts] = useState([
         {
             "id": 1,
             "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
@@ -68,17 +69,20 @@ function App() {
             'likeClass': '',
             "created": "2022-03-05"
         }
-    ];
+    ]);
+
+    const addPost = (post) => {
+        managePosts([...posts, post]);
+    };
 
     // REMEMBER THE SPREAD OPERATOR
-
     const [numbers, setNumbers] = useState([1, 2, 3]);
 
     const addNumber = () => {
         const newNumber = count;
         setNumbers([...numbers, newNumber]);
         console.log(numbers);
-    }
+    };
 
     return (
         <>
@@ -100,6 +104,19 @@ function App() {
 
                 </div>
             </div>
+
+            <div className='container'>
+                <div className="row justify-content-center">
+                    <div className="col-8">
+                        <PostForm
+                            addPost={addPost}
+                            posts={posts}
+                        />
+                    </div>
+
+                </div>
+            </div>
+
 
             <div id="container" className="posts-list">
 
