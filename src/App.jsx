@@ -121,6 +121,28 @@ function App() {
 
             </div>
 
+            <h1 className="main-title">(Filter Likes > 80)</h1>
+
+            <div id="container" className="posts-list">
+
+                {
+                    posts.filter((post) => post.likes > 80).map((post) => (
+                        <Posts
+                            key={post.id}
+                            avatar={post.author.image}
+                            author={post.author.name}
+                            date={post.created}
+                            media={post.media}
+                            content={post.content}
+                            id={post.id}
+                            likes={Number(post.likes)}
+                        />
+
+                    ))
+                }
+
+            </div>
+
         </>
     )
 }

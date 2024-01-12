@@ -1,5 +1,70 @@
 # Basics
 
+## Import a component
+```js
+import Posts from './Posts'
+```
+
+## Render a component:
+```js
+{
+    posts.map((post) => (
+
+        <Posts
+        key={post.id}
+        avatar={post.author.image}
+        author={post.author.name}
+        date={post.created}
+        media={post.media}
+        content={post.content}
+        id={post.id}
+        likes={Number(post.likes)}
+    />
+
+    ))
+}
+```
+```js
+{
+    posts.filter((post) => post.likes > 80).map((post) => (
+
+        <Posts
+            key={post.id}
+            avatar={post.author.image}
+            author={post.author.name}
+            date={post.created}
+            media={post.media}
+            content={post.content}
+            id={post.id}
+            likes={Number(post.likes)}
+        />
+
+    ))
+}
+```
+
+## Component *(Posts.jsx)*
+```js
+import './Posts.scss'
+
+import { useState } from 'react'
+
+function Posts({ prop1, prop2, ecc }) {
+
+    // LOGIC
+
+    return (
+        <>
+
+            /* MARRKUP */
+
+        </>
+    )
+}
+
+export default Posts
+```
+
 ## Import *useState* Hook
 ```js
 import { useState } from 'react'
