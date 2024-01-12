@@ -13,12 +13,7 @@ import Posts from './Posts'
         <Posts
         key={post.id}
         avatar={post.author.image}
-        author={post.author.name}
-        date={post.created}
-        media={post.media}
-        content={post.content}
-        id={post.id}
-        likes={Number(post.likes)}
+        // OTHER PROPS
     />
 
     ))
@@ -32,11 +27,7 @@ import Posts from './Posts'
             key={post.id}
             avatar={post.author.image}
             author={post.author.name}
-            date={post.created}
-            media={post.media}
-            content={post.content}
-            id={post.id}
-            likes={Number(post.likes)}
+            // OTHER PROPS
         />
 
     ))
