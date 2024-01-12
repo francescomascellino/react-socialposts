@@ -138,7 +138,7 @@ function App() {
 
             </div>
 
-            <h1 className="main-title">(Filter Likes > 80)</h1>
+            <h1 className="main-title">(Filter Likes &gt; 80)</h1>
 
             <div id="container" className="posts-list">
 
