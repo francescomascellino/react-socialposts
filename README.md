@@ -248,3 +248,15 @@ const handleSubmit = (e) => {
 
     }
 ```
+
+## useEffect basics
+```js
+// DEFINE EFFECT
+useEffect(() => {
+    document.title = `Count is ${count}`;
+}),
+    // [] MEANS THE EFFECT WILL RUN ONCE AND NEVER AGAIN.
+    // [count] MEAND THE EFFECT WILL RUN EVERY TIME count CHANGES.
+    // WRITE NOTHING (EVENT THE BRACLETS IF YOU WANT THAT THE EFFECT WILL RUN EVERY TIME THERE IS A CHANGE
+    ({ count });
+```

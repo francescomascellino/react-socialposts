@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './assets/scss/App.scss'
@@ -7,6 +7,15 @@ import PostForm from './components/PostForm'
 
 function App() {
     const [count, setCount] = useState(0)
+
+    // DEFINE EFFECT
+    useEffect(() => {
+        document.title = `Count is ${count}`;
+    }),
+        // [] MEANS THE EFFECT WILL RUN ONCE AND NEVER AGAIN.
+        // [count] MEAND THE EFFECT WILL RUN EVERY TIME count CHANGES.
+        // WRITE NOTHING (EVENT THE BRACLETS IF YOU WANT THAT THE EFFECT WILL RUN EVERY TIME THERE IS A CHANGE
+        ({ count });
 
     const [posts, managePosts] = useState([
         {
