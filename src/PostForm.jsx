@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function PostForm({ addPost, posts }) {
 
+    // FORM PAYLOAD STATE
     const [formPayload, setFormPayload] = useState({
         author: "",
         avatarUrl: "",

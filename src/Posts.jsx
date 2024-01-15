@@ -11,6 +11,7 @@ function Posts({ avatar, author, date, media, content, id, likes }) {
     //FUNZIONE PER SAPERE DA QUANTI MESI IL POST E' STATO CREATO
     let today = new Date(); //PRENDE LA DATA DI OGGI
 
+    // CALCS HOW MANY MONTHS AGO THE POST WAS CREATED
     function monthsAgo(actualDate, dateCreated) {
         let months;
         months = (actualDate.getFullYear() - dateCreated.getFullYear()) * 12;
@@ -27,17 +28,30 @@ function Posts({ avatar, author, date, media, content, id, likes }) {
     //LE PRIME LETTERE SONO IL CARATTERE 0 DELL'INDICE 0 e 1 DI authorSplit
     const profPicLetters = authorSplit[0].charAt(0) + authorSplit[1].charAt(0);
 
+    // LIKED STATE (like IS FALSE BY DEFAULT)
     const [like, setLike] = useState(false);
 
+    // +1/-1 LIKE STATE (liveValue TAKES THE likes PROP VALUE)
     const [likeValue, manageLikeValue] = useState(likes);
 
     const manageLike = (e) => {
         e.preventDefault();
+
+        // WHEN THE LIKE BUTTON IS CLICKED...
+        // IF THE POST HAS NOT BEEN LIKED YET
         if (!like) {
+            // CHANGES like FROM FALSE TO TRUE
             setLike((like) => !like);
+
+            // INCREASES likeValue BY 1
             manageLikeValue((likeValue) => likeValue + 1);
+
+            // ELSE
         } else {
+            // CHANGES like FROM FALSE TO TRUE
             setLike((like) => !like);
+
+            // DECREASES likeValue BY 1
             manageLikeValue((likeValue) => likeValue - 1);
         }
 
