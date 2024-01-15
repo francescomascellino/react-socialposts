@@ -176,7 +176,7 @@ const handleClick = () => {
 </form>
 ```
 
-## Define default form values
+## Define default form values with a state that manages the form payload
 ```js
 const [formPayload, setFormPayload] = useState({
         author: "",
