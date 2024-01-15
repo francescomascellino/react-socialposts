@@ -1,3 +1,5 @@
+import '../assets/scss/PostForm.scss'
+
 import { useState } from "react";
 
 function PostForm({ addPost, posts }) {

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.scss'
-import Posts from './Posts'
-import PostForm from './PostForm'
+import './assets/scss/App.scss'
+import Posts from './components/Posts'
+import PostForm from './components/PostForm'
 
 function App() {
     const [count, setCount] = useState(0)

@@ -1,4 +1,4 @@
-import './Posts.scss'
+import '../assets/scss/Posts.scss'
 
 import { useState } from 'react'
 
