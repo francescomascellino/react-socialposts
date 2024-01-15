@@ -1,18 +1,38 @@
+import { useState } from "react";
+
 function PostForm({ addPost, posts }) {
 
-    const handleClick = () => {
+    const [formPayload, setFormPayload] = useState({
+        author: "",
+        avatarUrl: "",
+        content: "",
+        mediaUrl: "",
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormPayload({
+            ...formPayload,
+            [name]: value,
+
+        })
+    };
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
 
         const post = {
 
             id: posts.length + 1,
 
-            content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, vitae assumenda! Maxime nemo voluptatum aperiam odit illum. Porro ut et quis omnis ea ipsam consequatur, officia voluptatibus necessitatibus quibusdam voluptas!",
+            content: formPayload.content,
 
-            media: "https://images.unsplash.com/photo-1500673922987-e212871fec22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            media: formPayload.mediaUrl,
 
             author: {
-                "name": "New Author",
-                "image": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                "name": formPayload.author,
+                "image": formPayload.avatarUrl
             },
 
             likes: Math.floor(Math.random() * 100),
@@ -31,22 +51,84 @@ function PostForm({ addPost, posts }) {
 
     return (
         <>
-            < div className="mb-3 bg-dark-subtle rounded p-3" >
-                <label htmlFor="" className="form-label">Add a new post</label>
-                <input
-                    type="text"
-                    name="content"
-                    id="content"
-                    className="form-control"
-                    placeholder="Enter your text here..."
-                    aria-describedby="helpId"
-                />
-                <small id="helpId" className="text-muted">Placeholder form</small>
+
+            {/* FORM */}
+            <form action="" onSubmit={handleSubmit} className="bg-light rounded">
+
+                {/* AUTHOR NAME FORM */}
+                <div className="mb-3 p-3">
+                    <label htmlFor="" className="form-label">Author</label>
+                    <input
+                        type="text"
+                        name="author"
+                        id="author"
+                        className="form-control"
+                        placeholder="Rick Sanchez"
+                        aria-describedby="helpId"
+                        value={formPayload.author}
+                        onChange={handleInputChange}
+                    />
+                    <small id="helpId" className="text-muted">Enter your name</small>
+                </div >
+
+                {/* AUTHOR AVATAR URL FORM */}
+                <div className="mb-3 p-3">
+                    <label htmlFor="" className="form-label">Add your profile picture</label>
+                    <input
+                        type="text"
+                        name="avatarUrl"
+                        id="avatarUrl"
+                        className="form-control"
+                        placeholder="Enter your avatar URL here..."
+                        aria-describedby="helpId"
+                        value={formPayload.avatarUrl}
+                        onChange={handleInputChange}
+                    />
+                    <small id="helpId" className="text-muted">Enter an URL for your profile picture</small>
+                </div >
+
+                {/* POST CONTENT FORM */}
+                <div className="mb-3 p-3">
+                    <label htmlFor="" className="form-label">Add a new post</label>
+                    <textarea
+                        name="content"
+                        id="content"
+                        cols="30"
+                        rows="10"
+                        className="form-control"
+                        placeholder="Enter your text here..."
+                        aria-describedby="helpId"
+                        value={formPayload.content}
+                        onChange={handleInputChange}
+                    >
+
+                    </textarea>
+                    <small id="helpId" className="text-muted">Share your thoughts</small>
+                </div >
+
+                {/* MEDIA URL FORM */}
+                <div className="mb-3 p-3">
+                    <label htmlFor="" className="form-label">Add an image to your post</label>
+                    <input
+                        type="text"
+                        name="mediaUrl"
+                        id="mediaUrl"
+                        className="form-control"
+                        placeholder="Enter your image URL here..."
+                        aria-describedby="helpId"
+                        value={formPayload.mediaUrl}
+                        onChange={handleInputChange}
+                    />
+                    <small id="helpId" className="text-muted">Enter the image URL</small>
+                </div >
+
+                {/* SUBMIT BUTTON */}
                 <div className="text-center py-2">
-                    <button onClick={handleClick}>Add Post</button>
+                    <button type="submit" className="btn btn-dark">Add Post</button>
                 </div>
 
-            </div >
+            </form>
+
         </>
     )
 

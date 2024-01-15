@@ -143,3 +143,91 @@ const handleClick = () => {
 ```js
 <button onClick={handleClick}>Add Post</button>
 ```
+
+## Use the form to add new cards
+```js
+{/* FORM */}
+// HANDLE THE SUBMIT EVENT WITH THE "handleSubmit" FUNCTION
+<form action="" onSubmit={handleSubmit} className="bg-light rounded">
+
+    {/* AUTHOR NAME FORM */}
+    <div className="mb-3 p-3">
+            <label htmlFor="" className="form-label">Author</label>
+            <input
+                type="text"
+                name="author"
+                id="author"
+                className="form-control"
+                placeholder="Rick Sanchez"
+                aria-describedby="helpId"
+                value={formPayload.author} // ADD A DEFAULT VALUE FOR THE FORM FIELDS
+                onChange={handleInputChange} // DEFINE THE FORM VALUES ON CHANGE WITH A FUNCTION
+            />
+        <small id="helpId" className="text-muted">Enter your name</small>
+    </div >
+
+    // OTHER CODE
+
+    {/* SUBMIT BUTTON */}
+    <div className="text-center py-2">
+        <button type="submit" className="btn btn-dark">Add Post</button>
+    </div>
+
+</form>
+```
+
+## Define default form values
+```js
+const [formPayload, setFormPayload] = useState({
+        author: "",
+        avatarUrl: "",
+        content: "",
+        mediaUrl: "",
+    });
+```
+## Assign new values at the input change
+```js
+const handleInputChange = (e) => {
+        const { name, value } = e.target; // TAKES THE INPUT "name" AND "value" FROM THE EVENT TARGET (THE FORM FIELD)
+        setFormPayload({
+            ...formPayload,
+            // EXAMPLE: author: " VALUE OF THE INPUT FIELD"
+            [name]: value,
+
+        })
+    };
+```
+
+## Handle the submit event
+```js
+const handleSubmit = (e) => {
+
+        // PREVENT THE PAGE FROM RELOADING
+        e.preventDefault();
+
+        const post = {
+
+            id: posts.length + 1,
+
+            // ASSIGN THE FORM PAYLOAD VALUES TO THE NEW POST VALUES
+            content: formPayload.content,
+
+            media: formPayload.mediaUrl,
+
+            author: {
+                "name": formPayload.author,
+                "image": formPayload.avatarUrl
+            },
+
+            likes: Math.floor(Math.random() * 100),
+
+            created: new Date(),
+
+        };
+
+        addPost(post);
+
+        console.log(post);
+
+    }
+```

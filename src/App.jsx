@@ -105,9 +105,9 @@ function App() {
                 </div>
             </div>
 
-            <div className='container'>
+            <div className='posts-list'>
                 <div className="row justify-content-center">
-                    <div className="col-8">
+                    <div className="col">
                         <PostForm
                             addPost={addPost}
                             posts={posts}
