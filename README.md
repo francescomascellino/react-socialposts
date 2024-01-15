@@ -63,20 +63,34 @@ import { useState } from 'react'
 
 ## Declare State values:
 ```js
+
+// LIKED STATE (like IS FALSE BY DEFAULT)
 const [like, setLike] = useState(false);
 
+// +1/-1 LIKE STATE (liveValue TAKES THE likes PROP VALUE)
 const [likeValue, manageLikeValue] = useState(likes);
 ```
 
 ## Manage the State values
 ```js
+// WHEN THE LIKE BUTTON IS CLICKED...
+// IF THE POST HAS NOT BEEN LIKED YET
 const manageLike = (e) => {
     e.preventDefault();
+
+    // CHANGES like FROM FALSE TO TRUE
     if (!like) {
+
+        // CHANGES like FROM FALSE TO TRUE
         setLike((like) => !like);
+
+        // INCREASES likeValue BY 1
         manageLikeValue((likeValue) => likeValue + 1);
     } else {
+        // CHANGES like FROM FALSE TO TRUE
         setLike((like) => !like);
+
+        // DECREASES likeValue BY 1
         manageLikeValue((likeValue) => likeValue - 1);
     }
 
@@ -178,6 +192,7 @@ const handleClick = () => {
 
 ## Define default form values with a state that manages the form payload
 ```js
+// FORM PAYLOAD STATE
 const [formPayload, setFormPayload] = useState({
         author: "",
         avatarUrl: "",
@@ -185,13 +200,15 @@ const [formPayload, setFormPayload] = useState({
         mediaUrl: "",
     });
 ```
+
 ## Assign new values at the input change
 ```js
 const handleInputChange = (e) => {
         const { name, value } = e.target; // TAKES THE INPUT "name" AND "value" FROM THE EVENT TARGET (THE FORM FIELD)
         setFormPayload({
             ...formPayload,
-            // EXAMPLE: author: " VALUE OF THE INPUT FIELD"
+
+            // EXAMPLE: author: "VALUE OF THE INPUT FIELD"
             [name]: value,
 
         })

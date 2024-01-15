@@ -11,9 +11,13 @@ function PostForm({ addPost, posts }) {
     });
 
     const handleInputChange = (e) => {
+
+        // TAKES THE INPUT "name" AND "value" FROM THE EVENT TARGET (THE FORM FIELD)
         const { name, value } = e.target;
         setFormPayload({
             ...formPayload,
+
+            // EXAMPLE: author: "VALUE OF THE INPUT FIELD"
             [name]: value,
 
         })
@@ -21,12 +25,14 @@ function PostForm({ addPost, posts }) {
 
     const handleSubmit = (e) => {
 
+        // PREVENT THE PAGE FROM RELOADING
         e.preventDefault();
 
         const post = {
 
             id: posts.length + 1,
 
+            // ASSIGN THE FORM PAYLOAD VALUES TO THE NEW POST VALUES
             content: formPayload.content,
 
             media: formPayload.mediaUrl,

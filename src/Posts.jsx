@@ -47,6 +47,7 @@ function Posts({ avatar, author, date, media, content, id, likes }) {
         // WHEN THE LIKE BUTTON IS CLICKED...
         // IF THE POST HAS NOT BEEN LIKED YET
         if (!like) {
+
             // CHANGES like FROM FALSE TO TRUE
             setLike((like) => !like);
 
