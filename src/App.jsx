@@ -10,6 +10,7 @@ function App() {
 
     // DEFINE EFFECT
     useEffect(() => {
+        localStorage.setItem("count", count.toString()); // LOCAL STORAGE TEST
         document.title = `Count is ${count}`;
     }),
         // [] MEANS THE EFFECT WILL RUN ONCE AND NEVER AGAIN.

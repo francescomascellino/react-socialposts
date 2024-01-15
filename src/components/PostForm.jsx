@@ -66,7 +66,7 @@ function PostForm({ addPost, posts }) {
 
                 {/* AUTHOR NAME FORM */}
                 <div className="mb-3 p-3">
-                    <label htmlFor="" className="form-label">Author</label>
+                    <label htmlFor="author" className="form-label">Author</label>
                     <input
                         type="text"
                         name="author"
@@ -82,7 +82,7 @@ function PostForm({ addPost, posts }) {
 
                 {/* AUTHOR AVATAR URL FORM */}
                 <div className="mb-3 p-3">
-                    <label htmlFor="" className="form-label">Add your profile picture</label>
+                    <label htmlFor="avatarUrl" className="form-label">Add your profile picture</label>
                     <input
                         type="text"
                         name="avatarUrl"
@@ -98,7 +98,7 @@ function PostForm({ addPost, posts }) {
 
                 {/* POST CONTENT FORM */}
                 <div className="mb-3 p-3">
-                    <label htmlFor="" className="form-label">Add a new post</label>
+                    <label htmlFor="content" className="form-label">Add a new post</label>
                     <textarea
                         name="content"
                         id="content"
@@ -117,7 +117,7 @@ function PostForm({ addPost, posts }) {
 
                 {/* MEDIA URL FORM */}
                 <div className="mb-3 p-3">
-                    <label htmlFor="" className="form-label">Add an image to your post</label>
+                    <label htmlFor="mediaUrl" className="form-label">Add an image to your post</label>
                     <input
                         type="text"
                         name="mediaUrl"
