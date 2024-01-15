@@ -6,12 +6,19 @@ function Posts({ avatar, author, date, media, content, id, likes }) {
 
     //CONVERTE LA DATA AMERICANA IN EU
     let dateCreated = new Date(date)
+
     let euroDate = dateCreated.getDate() + '/' + (dateCreated.getMonth() + 1) + '/' + dateCreated.getFullYear();
 
     //FUNZIONE PER SAPERE DA QUANTI MESI IL POST E' STATO CREATO
     let today = new Date(); //PRENDE LA DATA DI OGGI
 
     // CALCS HOW MANY MONTHS AGO THE POST WAS CREATED
+    /**
+     * 
+     * @param {Date} actualDate 
+     * @param {String} dateCreated 
+     * @returns number of months the post was created starting from today
+     */
     function monthsAgo(actualDate, dateCreated) {
         let months;
         months = (actualDate.getFullYear() - dateCreated.getFullYear()) * 12;
