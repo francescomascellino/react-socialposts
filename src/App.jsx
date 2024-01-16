@@ -95,13 +95,13 @@ function App() {
     };
 
     // DEFINE THE DATA STATE
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
 
     // API CALL ON STATE CHANGE USING useEffect
     useEffect(() => {
 
         // HTTP REQUEST WITH FETCH API
-        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        fetch('https://jsonplaceholder.typicode.com/posts')
             .then((response) => response.json())
             .then((data) => {
 
@@ -185,6 +185,33 @@ function App() {
                             id={post.id}
                             likes={Number(post.likes)}
                         />
+
+                    ))
+                }
+
+            </div>
+
+            <h1 className="main-title">Posts from API</h1>
+
+            <div id="container" className="posts-list">
+
+                {
+                    data.map((ApiPost) => (
+                        <div className='post rounded' key={ApiPost.id}>
+
+                            <div className='profile-pic-default'>
+                                <span>
+                                    {ApiPost.userId}
+                                </span>
+                            </div>
+
+                            <h4>Title: {ApiPost.title}
+                            </h4>
+
+                            <p>
+                                {ApiPost.body}
+                            </p>
+                        </div>
 
                     ))
                 }
