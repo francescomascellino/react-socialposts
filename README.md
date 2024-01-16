@@ -1,11 +1,13 @@
 # Basics
 
-## Import a component
+## Components
+
+### Import a component
 ```js
 import Posts from './Posts'
 ```
 
-## Render a component:
+### Render a component:
 ```js
 {
     posts.map((post) => (
@@ -34,7 +36,7 @@ import Posts from './Posts'
 }
 ```
 
-## Component *(Posts.jsx)*
+### Component *(Posts.jsx)*
 ```js
 import './Posts.scss'
 
@@ -56,14 +58,15 @@ function Posts({ prop1, prop2, ecc }) {
 export default Posts
 ```
 
-## Import *useState* Hook
+## useState Hook Basics
+
+### Import the *useState* Hook
 ```js
 import { useState } from 'react'
 ```
 
-## Declare State values:
+### Declare State values:
 ```js
-
 // LIKED STATE (like IS FALSE BY DEFAULT)
 const [like, setLike] = useState(false);
 
@@ -71,7 +74,7 @@ const [like, setLike] = useState(false);
 const [likeValue, manageLikeValue] = useState(likes);
 ```
 
-## Manage the State values
+### Manage the State values
 ```js
 // WHEN THE LIKE BUTTON IS CLICKED...
 // IF THE POST HAS NOT BEEN LIKED YET
@@ -97,12 +100,12 @@ const manageLike = (e) => {
 }
 ```
 
-## Recall the function to render the new values:
+### Recall the function to render the new values:
 ```js
 <a className={`like-button  js-like-button border ${!like ? "" : "like-button--liked"}`} href="#" data-postid={id} onClick={manageLike}>
 ```
 
-## Pass a function that alter the *State* as a prop
+### Pass a function that alter the *State* as a prop
 ```js
 const [posts, managePosts] = useState([
     {
@@ -138,7 +141,7 @@ const addPost = (post) => {
 />
 ```
 
-## Use the function passed as a prop to pass values to the component's parent
+### Use the function passed as a prop to pass values to the component's parent
 ```js
 const handleClick = () => {
 
@@ -158,9 +161,10 @@ const handleClick = () => {
 <button onClick={handleClick}>Add Post</button>
 ```
 
-## Use the form to add new cards
+## Use a form to add new cards
+
+### Form
 ```js
-{/* FORM */}
 // HANDLE THE SUBMIT EVENT WITH THE "handleSubmit" FUNCTION
 <form action="" onSubmit={handleSubmit} className="bg-light rounded">
 
@@ -190,7 +194,7 @@ const handleClick = () => {
 </form>
 ```
 
-## Define default form values with a state that manages the form payload
+### Define default form values with a state that manages the form payload
 ```js
 // FORM PAYLOAD STATE
 const [formPayload, setFormPayload] = useState({
@@ -201,7 +205,7 @@ const [formPayload, setFormPayload] = useState({
     });
 ```
 
-## Assign new values at the input change
+### Assign new values at the input change
 ```js
 const handleInputChange = (e) => {
         const { name, value } = e.target; // TAKES THE INPUT "name" AND "value" FROM THE EVENT TARGET (THE FORM FIELD)
@@ -215,7 +219,7 @@ const handleInputChange = (e) => {
     };
 ```
 
-## Handle the submit event
+### Handle the submit event
 ```js
 const handleSubmit = (e) => {
 
@@ -250,8 +254,14 @@ const handleSubmit = (e) => {
 ```
 
 ## useEffect basics
+
+### Import the *useState* Hook
 ```js
-// DEFINE EFFECT
+import { useEffect, useState } from 'react'
+```
+
+### Define the "efffect"
+```js
 useEffect(() => {
     localStorage.setItem("count", count.toString()); // LOCAL STORAGE TEST
     document.title = `Count is ${count}`;
@@ -263,7 +273,7 @@ useEffect(() => {
 );
 ```
 
-## Example of Http Request with useState at the loading of a component
+### Example of Http Request with useState at the loading of a component
 ```js
 // DEFINE THE DATA STATE
 const [data, setData] = useState(null);
