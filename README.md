@@ -253,10 +253,36 @@ const handleSubmit = (e) => {
 ```js
 // DEFINE EFFECT
 useEffect(() => {
+    localStorage.setItem("count", count.toString()); // LOCAL STORAGE TEST
     document.title = `Count is ${count}`;
-}),
+},
     // [] MEANS THE EFFECT WILL RUN ONCE AND NEVER AGAIN.
-    // [count] MEAND THE EFFECT WILL RUN EVERY TIME count CHANGES.
+    // [count] MEANS THE EFFECT WILL RUN EVERY TIME count CHANGES.
     // WRITE NOTHING (EVENT THE BRACLETS) IF YOU WANT THAT THE EFFECT WILL RUN EVERY TIME THERE IS A CHANGE
-    ({ count });
+    [count]
+);
+```
+
+## Example of Http Request with useState at the loading of a component
+```js
+// DEFINE THE DATA STATE
+const [data, setData] = useState(null);
+
+// API CALL ON STATE CHANGE USING useEffect
+useEffect(() => {
+
+    // HTTP REQUEST WITH FETCH API
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then((response) => response.json())
+        .then((data) => {
+
+            // GIVES TO THE data State THE data RESPONSE VALUE
+            setData(data);
+            console.log(data);
+        });
+}, 
+
+// RUNS THE EFFECT ONLY ONCE WHEN THE COMPONENT IS RENDERED
+[]
+);
 ```
