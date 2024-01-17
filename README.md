@@ -1,5 +1,10 @@
 # Basics
 
+## Initialize a new project
+```bash
+npm create vite@latest . -- --template react
+```
+
 ## Components
 
 ### Import a component
